@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct PrimaryECSButton: View {
+    let text: String
+    let action: () -> Void
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Button(action: action, label: {
+            RoundedRectangle(cornerRadius: 8)
+                .overlay {
+                    Text(text)
+                        .font(.body)
+                        .foregroundStyle(.white)
+                }
+        })
+        .frame(height: 40)
     }
 }
 
 #Preview {
-    PrimaryECSButton()
+    PrimaryECSButton(text: "Register", action: {})
 }
